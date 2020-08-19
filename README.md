@@ -1,16 +1,15 @@
-# todo
+# TO-DO
 
-A new Flutter project.
+A To-do app with Flutter.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Function
 
-A few resources to get you started if this is your first Flutter project:
+1. To-do listing
+2. create new To-do
+3. edit To-do 
+4. easy click to complete function
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Using sqlite as local storage
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Using Bloc design pattern
