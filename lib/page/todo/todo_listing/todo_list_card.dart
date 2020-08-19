@@ -89,7 +89,9 @@ class _TodoCardState extends State<TodoCard> {
                 status,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: widget.todoItem.isFinish ? ColorConstant.todoCardCompleteGreen : Colors.black,
+                  color: widget.todoItem.isFinish
+                      ? ColorConstant.todoCardCompleteGreen
+                      : Colors.black,
                 ),
               ),
             ),
@@ -121,7 +123,8 @@ class _TodoCardState extends State<TodoCard> {
 
     return ConstrainedBox(
       constraints: new BoxConstraints(
-        maxHeight: 150.0,
+        minHeight: 100,
+        maxHeight: 180.0,
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -145,28 +148,37 @@ class _TodoCardState extends State<TodoCard> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              InkWell(
-                onTap: () => widget.onEditPressed(),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.only(left: 8, right: 8),
-                      child: Text(
-                        widget.todoItem.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+              Expanded(
+                child: InkWell(
+                  onTap: () => widget.onEditPressed(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              widget.todoItem.title,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 60,
-                      padding: EdgeInsets.all(8),
-                      child: _timeView(),
-                    ),
-                  ],
+                      Container(
+                        height: 60,
+                        padding: EdgeInsets.all(8),
+                        child: Container(child: _timeView()),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               _statusView(),

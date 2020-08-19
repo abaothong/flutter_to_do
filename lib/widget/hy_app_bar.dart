@@ -28,7 +28,7 @@ class HYAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           onPressed: () => onBackButtonPressed == null
               ? Navigator.pop(context)
-              : onBackButtonPressed,
+              : onBackButtonPressed(),
         );
       } else {
         return new IconButton(
